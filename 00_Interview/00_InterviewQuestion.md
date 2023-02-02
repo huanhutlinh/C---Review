@@ -91,3 +91,15 @@ Khi ta lưu data vào một biến int rồi dùng pointer to char dereference r
 WDT là một bộ đếm phần cứng có thể đếm cho tới khi đạt giá trị nào đó. Khi ấy, nó sẽ sinh ra tín hiệu reset nhằm đưa hệ thống quay về trạng thái ban đầu.
 
 Ta sử dụng WDT để tránh cho system không bị mắc kẹt, treo hoài trong một lỗi nào đó.
+
+## Pointer là gì? Size của pointer? Dùng pointer truy cập vào vùng nhớ cho trước?
+
+Pointer là một biến đặc biệt dùng để lưu địa chỉ. Vì địa chỉ các ô nhớ là cố định theo kiểu int nên với system 32bit thì size của pointer sẽ là 4 bytes. 64bit size = 8.
+
+Khi làm việc với hệ thống nhúng, ta thường có yêu cầu phải truy xuất một vùng nhớ được nêu giá trị địa chỉ cụ thể. Ví dụ như bạn cần đọc data hay thay đổi giá trị tại vùng nhớ có địa chỉ 0x67a9. Để thực hiện điều đó chúng ta có thể dùng pointer và làm như sau.
+
+```
+int *ptr;
+ptr = (int *)0x67a9;
+*ptr = 0xaa55;
+```
