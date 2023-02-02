@@ -85,3 +85,9 @@ Khi ta lưu data vào một biến int rồi dùng pointer to char dereference r
 **BE**
 
 <table><tbody><tr><td>Byte 3</td><td>Byte 2</td><td>Byte 1</td><td>Byte 0</td></tr><tr><td><span>00000010</span></td><td>00000000</td><td>00000000</td><td>00000000</td></tr></tbody></table>
+
+## Watchdog Timer là gì?
+
+WDT là một bộ đếm phần cứng có thể đếm cho tới khi đạt giá trị nào đó. Khi ấy, nó sẽ sinh ra tín hiệu reset nhằm đưa hệ thống quay về trạng thái ban đầu.
+
+Ta sử dụng WDT để tránh cho system không bị mắc kẹt, treo hoài trong một lỗi nào đó.
