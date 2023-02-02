@@ -103,3 +103,29 @@ int *ptr;
 ptr = (int *)0x67a9;
 *ptr = 0xaa55;
 ```
+
+## Đọc tên các kiểu khai báo pointer sau
+
+int a;  
+\=> Biến kiểu int.
+
+int \*a;  
+\=> Pointer trỏ đến biến kiểu int.
+
+int \*\*a;  
+\=> Pointer trỏ đến một pointer khác, mà pointer đó lại trỏ đến một biến kiểu int.
+
+int a\[10\];  
+\=> Mảng 10 phần tử kiểu int.
+
+int \*a\[10\];  
+\=> Mảng10 phần tử là pointer trỏ tới biến kiểu int (dĩ nhiên mỗi thằng trỏ độc lập nhau).
+
+int (\*a)\[10\];  
+\=> Pointer trỏ tới 1 mảng có 10 phần tử kiểu int.
+
+int (\*a)(int);  
+\=> Pointer trỏ tới 1 function (function pointer) mà function đó có 1 argument kiểu int và return type là int.
+
+int (\*a\[10\])(int);  
+\=> Mảng gồm 10 thằng function pointer có đặc điểm như trên.
