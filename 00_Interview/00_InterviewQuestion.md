@@ -129,3 +129,51 @@ int (\*a)(int);
 
 int (\*a\[10\])(int);  
 \=> Mảng gồm 10 thằng function pointer có đặc điểm như trên.
+
+## C memory layout
+
+Một chương trình C cơ bản sau khi compile thì sẽ có memory layout gồm các phần chính sau:
+
+1\. Text segment
+2\. Initialized data segment
+3\. Uninitialized data segment
+4\. Stack
+5\. Heap
+
+![](https://laptrinhmai.com/wp-content/uploads/2021/07/image.png)
+
+**Text segmen**t
+
+Còn được gọi là code segment, dùng để lưu các đoạn code thực thi được. Phần này thường nằm cuối, tránh xa ra Stack hay Heap nhằm tránh việc bị các vùng này overwrite.
+
+Text segment thường được đặt là vùng nhớ read-only.
+
+**Initialized data segment**
+
+Chứa các biến global và static (không phân biệt static local hay static global) đã được init giá trị rồi.
+
+ Vì các biến có thể thay đổi được nên nó sẽ không phải là vùng read-only.
+
+**Uninitialized data segment**
+
+Hay còn gọi là BSS segment, dùng để chứa các biến global và static chưa được init giá trị. Trước khi thực thi chương trình, kernel sẽ init các biến này về giá 0.
+
+**Stack**
+
+Sử dụng cấu trúc LIFO (Last In First Out), Stack dùng để lưu biến local và những thông tin cần cho việc thực thi function (như argument chẳng hạn).
+
+Những thông tin như vậy nằm thành từng block và lần lược được nhét vào Stack, khi dùng Stack sẽ lấy từ block được nhét vào sau cùng (top block). Các block như vậy được gọi là stack frame.
+
+Nếu học về kiến trúc máy tính sẽ có thanh ghi SP (Stack Pointer) để track lại top frame.
+
+**Heap**
+
+Ngược hướng với chiều tăng của vùng Stack, Heap được dùng để tạo vùng nhớ dynamic (qua các hàm malloc etc) Nếu Heap đụng tới vùng Stack thì ta sẽ hết free mem.
+
+Tương tự nếu Stack quá lớn cũng sẽ gặp lỗi “Stackoverflow” (thường gặp nếu khai báo mảng quá khổ hoặc các hàm đệ quy được lặp quá nhiều).
+
+Tham khảo thêm:
+
+[https://www.geeksforgeeks.org/memory-layout-of-c-program/](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
+
+[https://www.hackerearth.com/practice/notes/memory-layout-of-c-program/](https://www.hackerearth.com/practice/notes/memory-layout-of-c-program/)
