@@ -177,3 +177,7 @@ Tham khảo thêm:
 [https://www.geeksforgeeks.org/memory-layout-of-c-program/](https://www.geeksforgeeks.org/memory-layout-of-c-program/)
 
 [https://www.hackerearth.com/practice/notes/memory-layout-of-c-program/](https://www.hackerearth.com/practice/notes/memory-layout-of-c-program/)
+
+## So sánh static library và dynamic library
+
+<table><tbody><tr><td>&nbsp;</td><td data-align="center">Static library</td><td data-align="center">Dymamic library</td></tr><tr><td>Định nghĩa</td><td data-align="center">Là library được compile chung với source code và đóng thành 1 file binary.</td><td data-align="center">Là library được compile riêng với source code, khi chương trình chạy mới link tới.</td></tr><tr><td>Ưu điểm</td><td data-align="center">Truy xuất nhanh.</td><td data-align="center">Nhiều chương trình có thể dùng chung 1 lib. Do nằm riêng với souce nên binary compile ra sẽ có kích thước không quá lớn.</td></tr><tr><td>Khuyết điểm</td><td data-align="center">Không dùng chung lib được giữa các chương trình. Size binary lớn.</td><td data-align="center">Khả năng thực thi ảnh hưởng nếu link không đúng lib.</td></tr></tbody></table>
