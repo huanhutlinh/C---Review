@@ -38,3 +38,24 @@ Tham khảo:
 [https://www.geeksforgeeks.org/difference-structure-union-c/](https://www.geeksforgeeks.org/difference-structure-union-c/)
 
 [https://www.guru99.com/difference-structure-union-c.html](https://www.guru99.com/difference-structure-union-c.html)
+
+## ISR là gì? Có return type hay pass value vào được không?
+
+A: KHONG
+
+ISR là Interrupt Service Routine. Hiểu đơn giản là chương trình được gọi khi có một sự kiện (ngắt) nào đó xảy ra.
+
+Không giống như các function bình thường, việc gọi các ISR thường không đoán trước được.
+
+Ví dụ như khi nhấn nút thì đèn sáng, bạn không biết được khi nào xảy ra việc nhấn nút.
+
+Do có tính đặc thù vậy nên ISR nào riêng khỏi main flow của chương trình, không có return type hoặc cho phép pass bất kỳ value nào vào.
+
+Các ISR thường chỉ dùng để xử lý các tác vụ nhanh (vd như bạn thấy xe quên gạt chống thì la lên, còn người lái xe sẽ lo việc còn lại).
+
+Quyền ưu tiên thực thi của ISR thường rất cao nên nếu không xong nhanh rồi out ra thì có thể ảnh hưởng performance hệ thống. Vậy nên ta cần tránh xử lý quá nhiều trong ISR.
+
+Các lỗi thường gặp khi viết ISR:
+
+- Dùng hàm printf: hàm này khi chạy cần alloc mem nên tốn thời gian.
+- Đặt breakpoint: về cơ bản không sai nhưng hệ thống có thể hoạt động không sát thực tế, từ đó việc debug cũng không mang nhiều ý nghĩa.
