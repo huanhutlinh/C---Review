@@ -23,6 +23,8 @@ Tham khảo:
 
 [https://www.keil.com/support/man/docs/armclang\_intro/armclang\_intro\_chr1385110934192.htm](https://www.keil.com/support/man/docs/armclang_intro/armclang_intro_chr1385110934192.htm)
 
+The `volatile` keyword in C and C++ is used to declare a variable that may change asynchronously and unexpectedly. This tells the compiler not to optimize the code by removing reads or writes to that variable, and to always perform a read or write operation each time the variable is used in the code. The `volatile` keyword is often used in conjunction with hardware register access or multi-threaded programming, to ensure that the value of a variable is always read from memory, and not from a cached copy.
+
 ## So sánh struct và union
 
 Cả struct lẫn union đều là các user define type (kiểu dữ liệu do người dung đề ra). Ta đều có thể dung dấu “.” để truy cập các phần tử. Tuy vậy việc sử dụng chúng lại có đôi chút khác biệt.
