@@ -59,3 +59,29 @@ Các lỗi thường gặp khi viết ISR:
 
 - Dùng hàm printf: hàm này khi chạy cần alloc mem nên tốn thời gian.
 - Đặt breakpoint: về cơ bản không sai nhưng hệ thống có thể hoạt động không sát thực tế, từ đó việc debug cũng không mang nhiều ý nghĩa.
+
+## Little Endian và Big Endian là gì? Viết chương trình kiểm tra
+
+Khi lưu dữ liệu vào bộ nhớ, LE tức là bit thấp sẽ lưu vào vùng nhớ thấp còn BE thì ngược lại.
+
+Ta có thể kiểm tra hệ thống là LE hay BE dựa vào chương trình đơn giản sau
+
+```
+int p=0x2; 
+if(* (char *) &p == 0x2) printf (“little endian”); 
+else printf (“big endian”);
+```
+
+Giải thích
+
+int là kiểu dữ liệu gồm 4 bytes còn char thì chỉ có 1 byte.
+
+Khi ta lưu data vào một biến int rồi dùng pointer to char dereference ra thì sẽ biết được value đang nằm trong phần char “cao” hay “thấp”.
+
+**LE**
+
+<table><tbody><tr><td>Byte 3</td><td>Byte 2</td><td>Byte 1</td><td>Byte 0</td></tr><tr><td>00000000</td><td>00000000</td><td>00000000</td><td><span>00000010</span></td></tr></tbody></table>
+
+**BE**
+
+<table><tbody><tr><td>Byte 3</td><td>Byte 2</td><td>Byte 1</td><td>Byte 0</td></tr><tr><td><span>00000010</span></td><td>00000000</td><td>00000000</td><td>00000000</td></tr></tbody></table>
